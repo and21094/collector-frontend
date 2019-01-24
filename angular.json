@@ -27,9 +27,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.sass",
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/assets/fa5/css/all.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/fa5/js/all.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -83,9 +90,16 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.sass"
+              "src/styles.sass",
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/assets/fa5/css/all.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/fa5/js/all.min.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
