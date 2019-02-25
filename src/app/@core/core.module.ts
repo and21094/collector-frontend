@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { Service } from './services/service';
 import { UserService } from './services/user.service';
+import { CollectionsService } from './services/collections.service';
 import { HttpClientModule } from '@angular/common/http';
 
 const SERVICES = [
   Service,
-  UserService
+  UserService,
+  CollectionsService
 ];
 
 @NgModule({

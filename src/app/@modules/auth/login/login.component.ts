@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { BaseComponent } from '../../base.component';
 import { UserService } from '../../../@core/services/user.service';
+import { ToastrService } from 'ngx-toastr';
+import { ApiResponse } from '../../../@core/models/ApiResponse';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
     password: ''
   };
 
-  constructor(protected service: UserService) {
+  constructor(public service: UserService,
+    public toastr: ToastrService) {
     super();
   }
 
@@ -24,27 +27,19 @@ export class LoginComponent extends BaseComponent implements OnInit {
   login() {
     this.loading = true;
 
-    const logged = this.service.login(this.user.email, this.user.password);
-
-    if (logged) {
+    this.service.login(this.user.email, this.user.password)
+    .subscribe((response: ApiResponse) => {
       this.loading = false;
-      alert('success');
-    } else {
+      if (response.result) {
+        window.location.replace('');
+      } else {
+        this.toastr.error(response.message);
+      }
+    }, (error) => {
       this.loading = false;
-      alert('error');
-    }
-
-    // this.service.login(this.user.email, this.user.password)
-    // .subscribe((response) => {
-    //   this.loading = false;
-    //   if (response && response.result === true) {
-    //     // window.location.replace('/dashboard');
-    //   } else {
-    //     // this.generalError = response.errors.general[0];
-    //     // this.errors = response.errors;
-    //     // this.loading = false;
-    //   }
-    // });
+      this.toastr.error('Ha ocurrido un error inesperado por favor vuelve a intentarlo.');
+      console.log('server error!', error);
+    });
 
   }
 

@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingComponent } from './loading/loading.component';
 import { ModuleWithProviders } from '../../../node_modules/@angular/compiler/src/core';
+import { NavComponent } from './nav/nav.component';
 
 const DIRECTIVES = [
 
 ];
 
 const COMPONENTS = [
-  LoadingComponent
+  LoadingComponent,
+  NavComponent
 ];
 
 const PIPES = [

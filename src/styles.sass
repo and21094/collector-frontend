@@ -1,3 +1,5 @@
+@import '~ngx-toastr/toastr.css'
+
 $primary: #26a69a
 $primary-light: #64d8cb
 $primary-dark: #00766c
@@ -5,6 +7,12 @@ $primary-dark: #00766c
 $light-gray: #f5f5f6
 $gray: #e1e2e1
 $error-red: red
+
+.light-gray-bg
+    background-color: $light-gray
+
+#toast-container > div
+    opacity: 1
 
 body
     background-color: $light-gray !important

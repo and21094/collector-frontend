@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../@shared/shared.module';
 
@@ -15,7 +14,6 @@ import { SharedModule } from '../../@shared/shared.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule
