@@ -24,7 +24,7 @@ export class Service {
   public headers_file = new HttpHeaders({});
 
   constructor(protected _httpClient: HttpClient) {
-    if (localStorage.getItem('collectorUser') && localStorage.getItem('collectorUser') !== undefined) {
+    if (localStorage.getItem('collectorUser') && !this.currentUser) {
       this.currentUser = JSON.parse(localStorage.getItem('collectorUser'));
       this.token = this.currentUser && this.currentUser.token;
       ​
@@ -51,6 +51,45 @@ export class Service {
     );
   }
 
+  findOne(id): Observable<any> {
+    const headers = this.headers;
+
+    return this._httpClient.get(`${environment.apiUrl}/${this.prefix}/${id}?user=${this.currentUser.user}`, { headers })
+    .pipe(map((response: ApiResponse) => {
+        return response;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  create(data): Observable<any> {
+    const headers = this.headers;
+
+    return this._httpClient.post(`${environment.apiUrl}/${this.prefix}`, data, { headers })
+    .pipe(map((response: ApiResponse) => {
+        return response;
+      }),
+      catchError(this.handleError)
+    );
+
+  }
+
+  update(id, data): Observable<any> {
+    const headers = this.headers;
+
+    return this._httpClient.post(`${environment.apiUrl}/${this.prefix}/${id}`, {user: this.currentUser.user, data}, { headers })
+    .pipe(map((response: ApiResponse) => {
+        return response;
+      }),
+      catchError(this.handleError)
+    );
+
+  }
+
+  getCurrentUser() {
+    return this.currentUser;
+  }
+
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -60,7 +99,7 @@ export class Service {
       // server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    return throwError(errorMessage);
+    return throwError(error);
   }
 
 }

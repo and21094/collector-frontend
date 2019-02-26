@@ -6,11 +6,13 @@ import { CollectorComponent } from './collector.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { SharedModule } from '../../@shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CollectionComponent } from './collection/collection.component';
 
 @NgModule({
   declarations: [
     CollectorComponent,
-    CollectionsComponent
+    CollectionsComponent,
+    CollectionComponent
   ],
   imports: [
     CommonModule,

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-collector',
   template: `
             <app-nav></app-nav>
-            <div class="container">
+            <div class="container mt-4">
               <router-outlet></router-outlet>
              </div>`,
   styles: []
