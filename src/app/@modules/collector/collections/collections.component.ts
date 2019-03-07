@@ -54,7 +54,7 @@ export class CollectionsComponent extends BaseComponent implements OnInit {
   }
 
   changeCollection(collection) {
-    this.router.navigate([`/collection/${collection._id}`]);
+    this.router.navigate([`/collection/${collection}`]);
   }
 
   getCollectionType(type) {
